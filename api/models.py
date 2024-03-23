@@ -14,7 +14,7 @@ class Career(models.Model):
     job = models.ForeignKey(Job, on_delete=models.CASCADE)
 
     def __str__(self):
-        return self.job
+        return self.job.organisation
     
 class Bio(models.Model):
     name = models.CharField(max_length=20)
