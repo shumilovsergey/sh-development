@@ -1,3 +1,6 @@
+{% load static tailwind_tags %}
+{% load static %}
+
 <!DOCTYPE html>
 <html>
     <head>
@@ -8,9 +11,61 @@
                 background-color: rgb(189, 143, 233);
             }
         </style>
+{% tailwind_css %}
     </head>
 
     <body>
-        <p>qq</p>
+
+        <div>
+            <p>BIO</p>
+            <div>{{ bio.name }}</div>
+            <div>{{ bio.position }}</div>
+            <div>{{ bio.about_me }}</div>
+        </div>
+
+        <div>
+            <p>AVATAR</p>
+        </div>
+
+        <div>
+            <p>FEEDBACK</p>
+            {% for feed in feedback %}
+                <div>{{ feed.name }} - {{ feed.value }}</div>
+                -
+            {% endfor %}
+        </div>
+
+        <div>
+            <p>JOBS</p>
+            {% for job in jobs %}
+                <div>{{ job.organisation }}</div>
+                -
+            {% endfor %}
+        </div>
+
+        <div>
+            <p>PROJECTS</p>
+            {% for project in projects %}
+                
+                <div>{{ project.name }}</div>
+                <div>{{ project.description }}</div>
+                <div>{{ project.url }}</div>
+                -
+                
+            {% endfor %}
+        </div>
+
+        <div>
+            <p>SKILLS</p>
+            {% for skill in skills %}
+                <div>{{ skill.name }}</div>
+                -
+            {% endfor %}
+        </div>
+
+        <div>
+            <img src="{% static 'images/me.jpg' %}" alt="sh-dev">
+        </div>
+        
     </body>
 </html>

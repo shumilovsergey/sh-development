@@ -1,7 +1,6 @@
 from django.urls import path
-from . import views
-
+from .views import Main
 app_name = 'api'
 urlpatterns = [
-    path('', views.index, name='index'),
+    path('', Main.as_view(), name='main'),
 ]
