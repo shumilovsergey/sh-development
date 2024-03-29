@@ -1,71 +1,97 @@
 {% load static tailwind_tags %}
 {% load static %}
-
 <!DOCTYPE html>
-<html>
-    <head>
-        <meta charset="utf-8" />
-        <title>sh-dev</title>
-        <style>
-            body {
-                background-color: rgb(189, 143, 233);
-            }
-        </style>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>sh-dev</title>
+  <style>
+    img.background {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* Ensure the image covers the entire body */
+    z-index: -1; /* Place the image behind other content */
+    }
+  </style>
 {% tailwind_css %}
-    </head>
+</head>
 
-    <body>
+<body class="font-sans antialiased text-gray-100 leading-normal tracking-wider bg-cover">
+<img class="background blur-sm opacity-90" src="{% static 'images/bg.jpeg' %}">
 
-        <div>
-            <p>BIO</p>
-            <div>{{ bio.name }}</div>
-            <div>{{ bio.position }}</div>
-            <div>{{ bio.about_me }}</div>
-        </div>
 
-        <div>
-            <p>AVATAR</p>
-        </div>
+  <div class="max-w-4xl flex items-center h-auto lg:h-screen flex-wrap mx-auto my-32 lg:my-0">
+    
+	<!--Main Col-->
+	<div id="profile" class="w-full lg:w-3/5 rounded-lg lg:rounded-l-lg lg:rounded-r-none shadow-2xl bg-gray-900 opacity-85 mx-6 lg:mx-0">
+	
 
-        <div>
-            <p>FEEDBACK</p>
-            {% for feed in feedback %}
-                <div>{{ feed.name }} - {{ feed.value }}</div>
-                -
-            {% endfor %}
-        </div>
-
-        <div>
-            <p>JOBS</p>
-            {% for job in jobs %}
-                <div>{{ job.organisation }}</div>
-                -
-            {% endfor %}
-        </div>
-
-        <div>
-            <p>PROJECTS</p>
-            {% for project in projects %}
+		<div class="p-4 md:p-12 text-center lg:text-left">
+			<!-- Image for mobile view-->
+			<img class="block lg:hidden rounded-full shadow-xl mx-auto -mt-16 h-48 w-48 bg-cover bg-center" src="{% static 'images/sqr_me.jpg' %}">
+			<h1 class="text-3xl font-bold pt-8 lg:pt-0">Шумилов Сергей</h1>
+			<div class="mx-auto lg:mx-0 w-4/5 pt-3 border-b-2 border-fuchsia-400 opacity-25"></div>
+			<p class="pt-4 text-base font-bold flex items-center justify-center lg:justify-start"><svg class="h-4 fill-current text-sky-500 pr-4" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20"><path d="M9 12H1v6a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-6h-8v2H9v-2zm0-1H0V5c0-1.1.9-2 2-2h4V2a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v1h4a2 2 0 0 1 2 2v6h-9V9H9v2zm3-8V2H8v1h4z"/></svg> Системный администратора / DevOps</p>
+			<p class="pt-8 text-sm">Тут небольшой рассказ про Серегу и о том на сколько он талантливый эмплоер</p>
+            
+			<div class="mt-6 pb-16 lg:pb-0 w-4/5 lg:w-full mx-auto flex flex-wrap items-center justify-around">
                 
-                <div>{{ project.name }}</div>
-                <div>{{ project.description }}</div>
-                <div>{{ project.url }}</div>
-                -
+				<a class="group h-10 bg-sky-600 rounded-full hover:bg-sky-400 duration-300" href="https://t.me/sergey_showmelove">
+                    <img class="m-0.5 h-9 group-hover:h-8 group-hover:m-1 duration-500" src="{% static 'icons/telegram.svg' %}">
+                </a>	
+
+				<a class="group h-10 bg-sky-600 rounded-full hover:bg-sky-400 duration-300" href="mailto:wumilovsergey@gmail.com">
+                    <img class="m-0.5 h-9 group-hover:h-8 group-hover:m-1 duration-500" src="{% static 'icons/mail.svg' %}">
+                </a>		
                 
-            {% endfor %}
-        </div>
+				<a class="group h-10 bg-sky-600 rounded-full hover:bg-sky-400 duration-300" href="https://github.com/shumilovsergey/">
+                    <img class="m-1.5 h-7 group-hover:h-6 group-hover:m-2 duration-500" src="{% static 'icons/git.svg' %}">
+                </a>
+				
+				<a class="group h-10 bg-sky-600 rounded-full hover:bg-sky-400 duration-300" href="https://www.instagram.com/json.fullstackham?igsh=dHpiZm5uOXdkcDJn&utm_source=qr">
+                    <img class="m-1.5 h-7 group-hover:h-6 group-hover:m-2 duration-500" src="{% static 'icons/instagram.svg' %}">
+                </a>	
 
-        <div>
-            <p>SKILLS</p>
-            {% for skill in skills %}
-                <div>{{ skill.name }}</div>
-                -
-            {% endfor %}
-        </div>
+			</div>
 
-        <div>
-            <img src="{% static 'images/me.jpg' %}" alt="sh-dev">
-        </div>
-        
-    </body>
+			<div class="pt-12 lg:w-full mx-auto flex flex-wrap items-center justify-around w-4/5">
+				<button class="bg-sky-600  text-white font-bold py-2 px-4 rounded-full hover:py-2 hover:px-6 hover:bg-sky-400 duration-700">
+				    Карьера
+				</button> 
+
+				<button class="bg-sky-600  text-white font-bold py-2 px-4 rounded-full hover:py-2 hover:px-6 hover:bg-sky-400 duration-700">
+                    Партфолио
+                </button> 
+
+                <button class="bg-sky-600  text-white font-bold py-2 px-4 rounded-full hover:py-2 hover:px-6 hover:bg-sky-400 duration-700">
+                    Навыки
+                </button> 
+			</div>
+			<!-- Use https://simpleicons.org/ to find the svg for your preferred product --> 
+
+		</div>
+
+	</div>
+	
+	<!--Img Col-->
+	<div class="w-full lg:w-2/5">
+		<!-- Big profile image for side bar (desktop) -->
+		<img src="{% static 'images/me.jpg' %}" class="rounded-none lg:rounded-lg shadow-2xl hidden lg:block">
+
+		
+	</div>
+
+</div>
+	
+</body>
+
 </html>
+
+
+

@@ -1,0 +1,74 @@
+{% load static tailwind_tags %}
+{% load static %}
+
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8" />
+        <title>sh-dev</title>
+        <style>
+            body {
+                background-color: rgb(189, 143, 233);
+            }
+        </style>
+{% tailwind_css %}
+    </head>
+
+    <body>
+        <div class=" flex flex-wrap max-w-5xl justify-evenly m-8 bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700">
+
+            <div class="flex-none">
+                <img class="rounded-full w-72 h-72" src="{% static 'images/me.jpg' %}" alt="sh-dev">
+            </div>
+
+            <div class="flex-none">
+                <div>
+                    <h5 class="text-2xl font-bold tracking-tight text-gray-900 dark:text-white">{{ bio.name }}</h5>
+
+                    <div>{{ bio.position }}</div>
+                    <div>{{ bio.about_me }}</div>
+                </div>
+        
+                <div>
+                    <p>FEEDBACK</p>
+                    {% for feed in feedback %}
+                        <div>{{ feed.name }} - {{ feed.value }}</div>
+                        -
+                    {% endfor %}
+                </div>
+            </div>
+        </div>
+
+
+        <!-- <div>
+            <p>JOBS</p>
+            {% for job in jobs %}
+                <div>{{ job.organisation }}</div>
+                -
+            {% endfor %}
+        </div>
+
+        <div>
+            <p>PROJECTS</p>
+            {% for project in projects %}
+                
+                <div>{{ project.name }}</div>
+                <div>{{ project.description }}</div>
+                <div>{{ project.url }}</div>
+                -
+                
+            {% endfor %}
+        </div>
+
+        <div>
+            <p>SKILLS</p>
+            {% for skill in skills %}
+                <div>{{ skill.name }}</div>
+                -
+            {% endfor %}
+        </div> -->
+
+
+        
+    </body>
+</html>

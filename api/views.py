@@ -5,6 +5,7 @@ from .models import Bio
 from .models import Skills
 from .models import Feedback
 from .models import Projects
+import os
 
 
 class Main(View):
@@ -22,4 +23,6 @@ class Main(View):
             "feedback":feedback,
             "jobs":jobs
         })
+    
+
 
