@@ -14,7 +14,7 @@ class Main(View):
         bio = Bio.objects.get(name="Шумилов Сергей")
         projects = Projects.objects.all()
         feedback = Feedback.objects.all()
-        jobs = Job.objects.all()
+        jobs = Job.objects.all().order_by('-id')
 
         return render(request, 'index.html', {
             "skills":skills,
