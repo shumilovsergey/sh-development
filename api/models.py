@@ -34,4 +34,3 @@ class Projects(models.Model):
 
 
 # class audiens
-
