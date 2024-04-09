@@ -23,11 +23,6 @@ class Skills(models.Model):
     def __str__(self):
         return self.name
 
-class Feedback(models.Model):
-    name = models.CharField(max_length=200)
-    value = models.CharField(max_length=200)
-    def __str__(self):
-        return self.name 
     
 class Projects(models.Model):
     name = models.CharField(max_length=200)
