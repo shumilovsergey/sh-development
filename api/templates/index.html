@@ -8,6 +8,8 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
   <title>sh-dev</title>
+  <!-- <link rel="icon" src="{% static 'sh.svg' %}"> -->
+  <link rel="icon" type="image/svg+xml" href="{% static 'sh.svg' %}">
   <style>
 
   </style>
@@ -15,11 +17,11 @@
 </head>
 
 <body class="bg-gradient-to-r from-slate-500 to-slate-700 pt-10 ">
-    <div class="bg-gradient-to-r drop-shadow-xl from-slate-700 to-slate-800 opacity-90 min-w-[480px] w-3/5 flex h-full mx-auto items-center rounded-2xl flex-col lg:flex-row lg:items-stretch lg:w-5/6 lg:min-w-[1100px]">
+    <div class="bg-gradient-to-r drop-shadow-xl from-slate-700 to-slate-800 opacity-90 flex h-full mx-auto rounded-2xl flex-row items-stretch w-5/6 min-w-[1100px]">
 
         <div class="min-w-[420px] w-2/5 flex flex-col items-center">
             <img class="mt-10 mb-5 rounded-full bg-slate-700 h-80 w-80 border-orange-500 border-2" src="{% static 'images/sqr_me.jpg' %}">
-                <!-- <img class="rounded-full h-80 w-80"  src="{% static 'images/sqr_me.jpg' %}"> -->
+
             
 
             <div class="mr-14 pb-8">
@@ -45,31 +47,31 @@
 
                         <!-- БЛОК СПРАВА           -->
 
-        <div class="min-w-[420px] lg:min-w-[700px] lg:w-[800px]">
-            <div class="flex content-center flex-col space-y-4 lg:my-8">
+        <div class="min-w-[700px] w-[800px]">
+            <div class="flex content-center flex-col space-y-4 my-8">
                 <!-- Buttons -->
                 <div>
                     <div class="flex space-x-2">
                         <div>
-                            <button class="text-xl hidden lg:block px-4 py-2 hover:bg-slate-700 text-white rounded duration-500" onclick="showContainer('c0')">
+                            <button class="text-xl px-4 py-2 hover:bg-slate-700 text-white rounded duration-500" onclick="showContainer('c0')">
                                 Про меня
                             </button>
                             <div id="c0-b" class="border-b-2 mt-2 border-orange-500" ></div>
                         </div>
                         <div>
-                            <button class="text-xl hidden lg:block px-4 py-2 hover:bg-slate-700 text-white rounded duration-500" onclick="showContainer('c1')">
+                            <button class="text-xl px-4 py-2 hover:bg-slate-700 text-white rounded duration-500" onclick="showContainer('c1')">
                                 Карьера</button>
-                            <div id="c1-b" class="border-b-2 mt-2 border-orange-500 lg:hidden"></div>
+                            <div id="c1-b" class="border-b-2 mt-2 border-orange-500 hidden"></div>
                         </div>
                         <div>
-                            <button class="text-xl hidden lg:block px-4 py-2 hover:bg-slate-700 text-white rounded duration-500" onclick="showContainer('c2')">
+                            <button class="text-xl px-4 py-2 hover:bg-slate-700 text-white rounded duration-500" onclick="showContainer('c2')">
                                 Проекты</button>
-                            <div id="c2-b" class="border-b-2 mt-2 border-orange-500 lg:hidden"></div>
+                            <div id="c2-b" class="border-b-2 mt-2 border-orange-500 hidden"></div>
                         </div>
                         <div>
-                            <button class="text-xl hidden lg:block px-4 py-2 hover:bg-slate-700 text-white rounded duration-500" onclick="showContainer('c3')">
+                            <button class="text-xl px-4 py-2 hover:bg-slate-700 text-white rounded duration-500" onclick="showContainer('c3')">
                                 Навыки</button>
-                            <div id="c3-b" class="border-b-2 mt-2 border-orange-500 lg:hidden"></div>
+                            <div id="c3-b" class="border-b-2 mt-2 border-orange-500 hidden"></div>
                         </div>
                     </div>
 
@@ -82,14 +84,14 @@
                 </div>
                 
                 <!-- Containers -->
-                <div class="flex-col lg:flex-auto lg:pr-16 text-left">
+                <div class="pr-16 text-left">
                     <div id="c0" class="bg-slate-700 px-10 py-3 border-slate-500 border rounded-2xl mb-4">
                         <div class="text-white text-3xl mb-2">{{ bio.name }}</div>    
                         <div class="text-white text-2xl mb-10">{{ bio.position }}</div>
                         <div class="text-slate-300 text-lg" >{{ bio.about_me }}</div>
                     </div>
 
-                    <div id="c1" class="lg:hidden bg-slate-700 px-10 py-3 border-slate-500 border rounded-2xl mb-4">
+                    <div id="c1" class="hidden bg-slate-700 px-10 py-3 border-slate-500 border rounded-2xl mb-4">
                         <div class="text-lg text-white hidden">Карьера</div>
                             {% for job in jobs %}
                             <div class="mb-20 mt-4">
@@ -102,13 +104,13 @@
                                         <button>{{ job.organisation }}</button>
                                     </form>
                                 {% endif %}
-                                <div class="text-slate-300 text-lg mt-8" > {{ job.description }} </div>
+                                <div class="text-slate-300 text-lg mt-8 text-pretty" > {{ job.description }} </div>
                             </div>
                             {% endfor %}
                         
                     </div>
                     
-                    <div id="c2" class="lg:hidden bg-slate-700 px-10 py-3 border-slate-500 border rounded-2xl mb-4">
+                    <div id="c2" class="hidden bg-slate-700 px-10 py-3 border-slate-500 border rounded-2xl mb-4">
                         <div class="text-lg text-white hidden">Проекты</div>
                         {% for proj in projects %}
                         <div class="mb-16 mt-4">
@@ -124,9 +126,9 @@
                         {% endfor %}
                     </div>
                     
-                    <div id="c3" class="lg:hidden bg-slate-700 px-10 py-3 border-slate-500 border rounded-2xl mb-4">
+                    <div id="c3" class="hidden bg-slate-700 px-10 py-3 border-slate-500 border rounded-2xl mb-4">
                         <div class="text-lg text-white hidden">Навыки</div>
-                        <div class="flex gap-3">
+                        <div class="flex flex-wrap gap-5">
                             {% for skill in skills %}  
                                 <div class="text-white text-2xl">{{ skill.name }}</div>
                             {% endfor %}
@@ -143,21 +145,21 @@
     function showContainer(containerId) {
         var borderId = containerId + "-b"
         // Hide all containers
-        document.getElementById('c0').classList.add('lg:hidden');
-        document.getElementById('c1').classList.add('lg:hidden');
-        document.getElementById('c2').classList.add('lg:hidden');
-        document.getElementById('c3').classList.add('lg:hidden');
+        document.getElementById('c0').classList.add('hidden');
+        document.getElementById('c1').classList.add('hidden');
+        document.getElementById('c2').classList.add('hidden');
+        document.getElementById('c3').classList.add('hidden');
         
         // Hide all borders
-        document.getElementById('c0-b').classList.add('lg:hidden');
-        document.getElementById('c1-b').classList.add('lg:hidden');
-        document.getElementById('c2-b').classList.add('lg:hidden');
-        document.getElementById('c3-b').classList.add('lg:hidden');
+        document.getElementById('c0-b').classList.add('hidden');
+        document.getElementById('c1-b').classList.add('hidden');
+        document.getElementById('c2-b').classList.add('hidden');
+        document.getElementById('c3-b').classList.add('hidden');
 
         // Show the selected container
-        document.getElementById(containerId).classList.remove('lg:hidden');
+        document.getElementById(containerId).classList.remove('hidden');
         // Show the selected border
-        document.getElementById(borderId).classList.remove('lg:hidden');
+        document.getElementById(borderId).classList.remove('hidden');
     }
     </script>
 </body>
