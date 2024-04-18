@@ -13,7 +13,7 @@ class Main(View):
         skills = Skills.objects.all()
         
         bio = get_object_or_404(Bio, name="Шумилов Сергей")
-        projects = Projects.objects.all()
+        projects = Projects.objects.all().order_by('-id')
         jobs = Job.objects.all().order_by('-id')
 
         return render(request, 'index.html', {
