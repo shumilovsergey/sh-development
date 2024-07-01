@@ -1,14 +1,13 @@
 version: '3'
 
 services:
-  main:
-    build:
-      context: .
-      dockerfile: Dockerfile
+  sh-dev:
+    platform: linux/x86_64
+    image: ghcr.io/shumilovsergey/sh-development:latest
     ports:
       - "5004:8000"
     restart: always
-    container_name: "sh-dev"
+    container_name: "sh-development"
     environment:
       - ALLOWED_HOSTS= localhost 127.0.0.1
     volumes:
